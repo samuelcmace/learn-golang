@@ -7,6 +7,13 @@ import (
 
 func main() {
 
+	var test = 0
+
+	http.HandleFunc("/count", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprint(w, "Count: ", test)
+		test += 1
+	})
+
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, "Web services are easy with Go!")
 	})
